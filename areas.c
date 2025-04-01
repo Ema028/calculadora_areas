@@ -17,7 +17,8 @@ int main(void)
     double area;
     void(*fp)(double*);
     printf("Digite 1 para um triângulo, 2 para um círculo e 3 para um retângulo\n");
-    int forma = scanf("%i", &forma); fflush(stdout);
+    int forma;
+    scanf("%i", &forma); fflush(stdout);
     switch(forma)
     {
         case TRIANGLE:
@@ -33,7 +34,7 @@ int main(void)
             return 0;
     }
     (fp)(&area);
-    printf("\nA área é: %d\n", area);
+    printf("\nA área é: %lf\n", area);
 }
 
 float get_float(void)
