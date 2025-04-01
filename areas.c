@@ -7,17 +7,17 @@
 #define RECTANGLE 3
 #define PI 3.1415
 
-int get_int(void);
-void triangle(int* result);
-void circle(int* result);
-void rectangle(int* result);
+float get_float(void);
+void triangle(double* result);
+void circle(double* result);
+void rectangle(double* result);
 
 int main(void)
 {
-    int area;
-    void(*fp)(int*);
+    double area;
+    void(*fp)(double*);
     printf("Digite 1 para um triângulo, 2 para um círculo e 3 para um retângulo\n");
-    int forma = get_int();
+    int forma = scanf("%i", &forma); fflush(stdout);
     switch(forma)
     {
         case TRIANGLE:
@@ -33,40 +33,40 @@ int main(void)
             return 0;
     }
     (fp)(&area);
-    printf("\n a área é: %i\n", area);
+    printf("\nA área é: %d\n", area);
 }
 
-int get_int(void)
+float get_float(void)
 {
-    int x;
-    scanf("%i\n", &x); fflush(stdout);
+    float x;
+    scanf("%f", &x); fflush(stdout);
     return x;
 }
 
-void triangle(int* result)
+void triangle(double* result)
 {
     printf("Digite o valor do lado 1:\n");
-    int x = get_int();
+    float x = get_float();
     printf("Digite o valor do lado 2:\n");
-    int y = get_int();
+    float y = get_float();
     printf("Digite o valor do lado 3:\n");
-    int z = get_int();
-    int p = (x + y + z)/2;
+    float z = get_float();
+    float p = (x + y + z)/2;
     *result = sqrt(p*(p - x)*(p - y)*(p - z));
 }
 
-void circle(int* result)
+void circle(double* result)
 {
     printf("Qual o raio?\n");
-    int r = get_int();
+    float r = get_float();
     *result = PI * r * r;
 }
 
-void rectangle(int* result)
+void rectangle(double* result)
 {
     printf("Digite o valor da Base:\n");
-    int b = get_int();
+    float b = get_float();
     printf("Digite o valor da altura:\n");
-    int h = get_int();
-    *result = b * h / 2;
+    float h = get_float();
+    *result = b * h;
 }
